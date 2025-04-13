@@ -1,0 +1,368 @@
+/* CSS 변수 정의 (필요에 따라 다른 파일이나 최상위에 배치해도 됨) */
+:root {
+  --primary-color: #00d1d4;
+  --primary-shadow: rgba(0, 209, 212, 0.3);
+  --primary-glow: rgba(0, 209, 212, 0.2);
+}
+
+/* ModulesPage 전용 컨테이너 */
+.modules-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* 헤더 (ModulesPage 전용 h1) */
+.modules-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1.5rem 0;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--primary-shadow);
+}
+
+/* 검색 섹션 */
+.modules-page #search-section {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  display: flex;
+  justify-content: center; /* 내부 요소 중앙 정렬 */
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+/* 검색 내부 래퍼 */
+.modules-page .search-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 검색 입력창 */
+.modules-page #operator-search {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(0, 209, 212, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1rem;
+}
+
+.modules-page #operator-search:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* 검색 버튼 */
+.modules-page .search-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #008688, var(--primary-color));
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modules-page .search-button:hover {
+  background: linear-gradient(135deg, var(--primary-color), #00f5f8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--primary-shadow);
+}
+
+.modules-page .search-button:active {
+  transform: translateY(1px);
+}
+
+/* 클래스/공지사항 버튼 영역 */
+.modules-page #class-selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+/* fancy-button 스타일 */
+.modules-page .fancy-button {
+  padding: 0.75rem 1.5rem;
+  background: rgba(18, 18, 18, 0.8);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.modules-page .fancy-button:hover {
+  background: rgba(0, 209, 212, 0.1);
+  box-shadow: 0 0 10px var(--primary-shadow);
+}
+
+.modules-page .fancy-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 5px rgba(0, 209, 212, 0.1);
+}
+
+.modules-page .fancy-button.active {
+  background: linear-gradient(135deg, var(--primary-color), #00f5f8);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 209, 212, 0.4);
+}
+
+.modules-page .fancy-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--primary-glow);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1), 
+              height 0.5s cubic-bezier(0.22, 1, 0.36, 1), 
+              opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+}
+
+.modules-page .fancy-button:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  transition: 0s;
+}
+
+/* 공지사항 카드 */
+.modules-page .notice-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 0 15px rgba(0, 209, 212, 0.15);
+}
+
+.modules-page .notice-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px var(--primary-shadow);
+}
+
+.modules-page .notice-text {
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.8;
+}
+
+/* 서브클래스 선택 영역 스타일링 */
+.modules-page #subclass-selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 15px rgba(0, 209, 212, 0.15);
+}
+
+/* 오퍼레이터 카드 그리드 */
+.modules-page #operator-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.modules-page .operator-card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  border: 2px solid transparent;
+}
+
+.modules-page .operator-card.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(0, 209, 212, 0.2);
+  transform: translateY(-2px);
+}
+
+.modules-page .card-header {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.modules-page .operator-thumb {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modules-page .operator-info {
+  margin-top: 1rem;
+}
+
+.modules-page .operator-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.modules-page .operator-class {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.25rem;
+}
+
+/* 모듈 정보 전개 영역 - 항상 렌더링, 전환 효과 적용 */
+.modules-page .card-details {
+  opacity: 0;
+  transform: translateY(-10px);
+  overflow: hidden;
+  height: 0;
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+              height 1s cubic-bezier(0.22, 1, 0.36, 1),
+              padding 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modules-page .card-details.expanded {
+  opacity: 1;
+  transform: translateY(0);
+  height: auto; /* 내용에 맞게 높이 자동 조절 */
+  padding: 1rem;
+}
+
+/* 모듈 그리드 */
+.modules-page .module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modules-page .module-item {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.modules-page .module-item h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.modules-page .module-img {
+  width: 100%;
+  border-radius: 4px;
+  cursor: zoom-in;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modules-page .module-img:hover {
+  transform: scale(1.02);
+}
+
+/* 줌 오버레이 */
+.modules-page .zoom-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  overflow: auto;
+}
+
+.modules-page .zoom-content {
+  position: relative;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.modules-page .zoom-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 2rem;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1001;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modules-page .zoom-close:hover {
+  transform: scale(1.1);
+  background: rgba(0, 209, 212, 0.2);
+  box-shadow: 0 0 15px rgba(0, 209, 212, 0.5);
+}
+
+.modules-page .zoom-close:active {
+  transform: scale(0.95);
+}
+
+.modules-page #zoomed-image {
+  width: 100%;
+  height: auto;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .modules-page .container {
+    padding: 0.5rem;
+  }
+
+  .modules-page #operator-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .modules-page .fancy-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .modules-page .operator-thumb {
+    height: 200px;
+  }
+
+  .modules-page .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modules-page .zoom-content {
+    width: 95%;
+    margin: 1rem auto;
+  }
+}
