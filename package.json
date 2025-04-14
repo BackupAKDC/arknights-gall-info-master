@@ -1,11 +1,19 @@
 {
+<<<<<<< HEAD
   "homepage": "https://github.com/BackupAKDC/arknights-gall-info-master",
+=======
+  "homepage": "https://oricake.github.io/arknights-gall-info",
+>>>>>>> 85fc41d2c842d462c0988057587bc85ab4d5cb56
   "name": "arknights-gall-info",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+<<<<<<< HEAD
     "predeploy": "npm run build",
+=======
+    "predeploy": "vite build",
+>>>>>>> 85fc41d2c842d462c0988057587bc85ab4d5cb56
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
