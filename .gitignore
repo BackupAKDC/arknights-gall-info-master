@@ -1,0 +1,7 @@
+# Node and build folders
+node_modules/
+dist/
+.next/
+.env
+.DS_Store
+*.log
